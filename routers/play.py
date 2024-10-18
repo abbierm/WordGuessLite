@@ -10,13 +10,6 @@ router = APIRouter(
 )
 
 
-
-@router.get('/')
-async def index():
-    return "<h1>Hello!</h1>"
-
-
-
 @router.get('/start')
 async def play(cache = Depends(get_cache)):
     cache = get_cache()
@@ -29,7 +22,6 @@ class Guess(BaseModel):
     guess: str
 
 
-
 @router.post('/guess')
 async def make_guess(
     guess: Guess, 
@@ -39,7 +31,6 @@ async def make_guess(
     cache = get_cache()
     game_node = cache.get(guess.game_token)
 
-    # TODO: Better Error Handling
     if not game_node:
         return {"error": "invalid game token"}
     

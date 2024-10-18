@@ -9,7 +9,7 @@ app.include_router(play.router)
 
 @app.get("/")
 async def root():
-    return {"message": "hello this is the homepage"}
+    return {"message": "homepage"}
 
 
 

@@ -50,8 +50,6 @@ def _validate_guess(guess: str) -> bool:
 
 def play_game_loop(guess: str, game: GameNode):
     guess = guess.lower()
-
-    # Error Checking
     if _validate_guess(guess) == False:
         return game.create_payload(message="Invalid Word")
     game.guesses.append(guess)
