@@ -44,6 +44,9 @@ class GameNode:
                 payload["guesses"][i + 1] = feedback_pair
         if self.status == False:
             payload["results"] = "won" if self.results == True else "lost"
+            payload["correct_word"] = self.correct_word
+        else:
+            payload["correct_word"] = "*****"
         return payload
 
 
